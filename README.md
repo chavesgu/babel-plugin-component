@@ -1,16 +1,13 @@
-# babel-plugin-component
+# babel-plugin-component-scss
 
-[![NPM version](https://img.shields.io/npm/v/babel-plugin-component.svg)](https://npmjs.org/package/babel-plugin-component)
-[![Build Status](https://travis-ci.org/ElementUI/babel-plugin-component.svg?branch=master)](https://travis-ci.org/ElementUI/babel-plugin-component)
-[![Coverage Status](https://coveralls.io/repos/github/QingWei-Li/babel-plugin-component/badge.svg?branch=master)](https://coveralls.io/github/QingWei-Li/babel-plugin-component?branch=master)
+[NPM version](https://npmjs.org/package/babel-plugin-component-scss)
 
 ## Install
 
 ```shell
-npm i babel-plugin-component -D
-
-# For babel6
-npm i babel-plugin-component@0 -D
+npm install babel-plugin-component-scss -D
+or
+yarn add babel-plugin-component-scss --dev
 ```
 
 ## Example
@@ -18,31 +15,16 @@ npm i babel-plugin-component@0 -D
 Converts
 
 ```javascript
-import { Button } from 'components'
+import { Button } from 'element-ui'
 ```
 
 to
 
 ```javascript
-var button = require('components/lib/button')
-require('components/lib/button/style.css')
+var button = require('element-ui/lib/button')
+require('element-ui/packages/theme-chunk/button.scss')
 ```
 
-## styleLibraryName Example
-
-Converts
-
-```javascript
-import Components from 'components'
-import { Button } from 'components'
-```
-
-to
-
-```javascript
-require('components/lib/styleLibraryName/index.css')
-var button = require('components/lib/styleLibraryName/button.css')
-```
 
 ## Usage
 
@@ -58,63 +40,13 @@ Via `.babelrc` or babel-loader.
 ```javascript
 {
   "plugins": [xxx,
-    ["component", {
-      libraryName: "antd",
-      style: true,
-    }, "antd"],
-    ["component", {
-      libraryName: "test-module",
-      style: true,
-    }, "test-module"]
+    ["component-scss", {
+       "libraryName": "element-ui",
+       "styleLibraryName": "theme-chalk/src",
+       "ext":".scss"
+     }]
   ]
 }
-```
-
-### Component directory structure
-```
-- lib // 'libDir'
-  - index.js // or custom 'root' relative path
-  - style.css // or custom 'style' relative path
-  - componentA
-    - index.js
-    - style.css
-  - componentB
-    - index.js
-    - style.css
-```
-
-### Theme library directory structure
-```
-- lib
-  - theme-default // 'styleLibraryName'
-    - base.css // required
-    - index.css // required
-    - componentA.css
-    - componentB.css
-  - theme-material
-    - ...
-  - componentA
-    - index.js
-  - componentB
-    - index.js
-```
-or 
-```
-- lib
-  - theme-custom // 'styleLibrary.name'
-    - base.css // if styleLibrary.base true
-    - index.css // required
-    - componentA.css // default 
-    - componentB.css
-  - theme-material
-    - componentA
-      -index.css  // styleLibrary.path  [module]/index.css
-    - componentB
-      -index.css
-  - componentA
-    - index.js
-  - componentB
-    - index.js
 ```
 
 ### options
