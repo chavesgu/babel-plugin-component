@@ -1,6 +1,6 @@
 # babel-plugin-component-scss
 
-[![https://img.shields.io/npm/v/babel-plugin-component.svg]](https://npmjs.org/package/babel-plugin-component-scss)
+[![NPM VERSION](https://img.shields.io/npm/v/babel-plugin-component.svg)](https://npmjs.org/package/babel-plugin-component-scss)
 
 ## Install
 
